@@ -18,6 +18,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
 
 .home-page {
   background-color: rgb(232, 232, 232);
@@ -79,20 +84,27 @@ form {
   color: white;
   background-color: black;
 }
+.results-outer-container {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+}
 .results-container {
   display: flex;
   /* border: 1px solid black; */
-  width: 80%;
+  width: 90%;
   margin: auto;
   justify-content: space-between;
   align-items: center;
+
 }
 .results-header {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 2rem 0;
+  margin: 1rem 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -103,6 +115,7 @@ form {
   .results-container {
     flex-direction: column;
   }
+
   .wishlist-btn {
     width: 40%;
     width: 200px;
@@ -133,7 +146,7 @@ form {
   /* justify-content: center; */
   /* align-self: flex-start; */
   flex-wrap: wrap;
-  width: 80%;
+  width: 92%;
   min-width: 300px;
   margin: auto;
 }
@@ -190,7 +203,7 @@ form {
 }
 .suggestions-container {
   border: 1px solid grey;
-  width: 80%;
+  width: 90%;
   min-width: 300px;
   margin: auto;
   padding: 1rem 0;

@@ -1,14 +1,20 @@
 import SearchForm from "./searchForm";
-import {Link} from 'react-router-dom';
-import { useContext } from "react";
-import { countContext } from "../contexts/countContext";
+// import { useContext } from "react";
+// import { countContext } from "../contexts/countContext";
+import '../index.css'
+// import WishlistIcon from "./wishlistIcon";
+import Navigation from "./navigation";
+
 
 function HomePage() {
-    const {count} = useContext(countContext);
+    // const {count} = useContext(countContext);
 
+    
     return (
         <div>
-            <Link to="/wishlist" className="wishlist-btn">My Wishlist {count} </Link>
+            <Navigation />
+            {/* <img src="https://1000marcas.net/wp-content/uploads/2019/11/Logo-Adidas.png" style={{width: "10%", margin: "0 1rem"}} />
+            <WishlistIcon count={count} /> */}
             <SearchForm />
         </div>
     )

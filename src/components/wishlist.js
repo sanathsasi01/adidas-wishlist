@@ -4,12 +4,14 @@ import '../index.css'
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { countContext } from "../contexts/countContext";
+import Navigation from './navigation';
 
 function Wishlist() {
     const {count, setCount} = useContext(countContext);
 
     const [error, setError] = useState("");
     const [success, setSuccess] = useState("");
+    
     const [items, setItems] = useState( () => {
         const localStorageValue = localStorage.getItem('wishlist');
         return localStorageValue !== null ? JSON.parse(localStorageValue) : [] 
@@ -18,13 +20,14 @@ function Wishlist() {
         setError("");
         setSuccess("");
     }
+    // to remove item from wishlist
     const handleClick = (e) => {
         const checkIfExists = items.find( item => item.productid === e.target.id )
         if(checkIfExists === undefined) {
             setError("Item not found")
             setSuccess("")
             setTimeout(hideMessage, 2000);
-        }else {
+        } else {
             const newWishlist = items.filter( item => item.productid !== e.target.id )
             setItems(newWishlist)
             localStorage.setItem("wishlist", JSON.stringify(newWishlist))
@@ -35,13 +38,15 @@ function Wishlist() {
         }
     }
 
-    
-
     return (
         <div>
-            <div className='results-container'>
-                <h1 className='results-header wishlist-header'>- My Wishlist -</h1>
+            <Navigation />
+            <div className='results-outer-container'>
+                <div className='results-container'>
+                    <h1 className='results-header wishlist-header'>- My Wishlist -</h1>
+                </div>
             </div>
+            
             {error ? <p className='error-message message'> {error} </p> : null}
             {success ? <p className='success-message message'> {success} </p> : null}
             <div className='card-outer-container'>

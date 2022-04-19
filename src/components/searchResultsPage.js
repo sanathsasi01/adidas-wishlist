@@ -3,9 +3,11 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Card from './card';
 import '../index.css'
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import { countContext } from '../contexts/countContext';
 import Suggestions from './suggestions';
+// import WishlistIcon from './wishlistIcon';
+import Navigation from './navigation';
 
 function ResultPage() {
     const {state} = useLocation();
@@ -39,7 +41,7 @@ function ResultPage() {
             setWishlist(newWishlist)
             localStorage.setItem('wishlist', JSON.stringify(newWishlist));
             setCount(newWishlist.length)
-            setSuccess("Item added successfully")
+            setSuccess("Item added to wishlist")
             setError("")
             setTimeout(hideMessage,2000)
         }else {
@@ -68,30 +70,22 @@ function ResultPage() {
         }
         fetchData()
     }, [searchTerm])
+
     return (
         <div>
-            <div className='results-container'>
+            {/* <div className='results-outer-container'> */}
+                <Navigation />
                 <h2 className='results-header'>Showing results for "{searchTerm}"</h2>
-                <Link to="/wishlist" className="wishlist-btn">My Wishlist {count} </Link>
-            </div>
-
+            {/* </div> */}
             <Suggestions suggestions={suggestions}setSearchTerm={setSearchTerm}/>
-
-            {/* <div className='suggestions-container'>
-                <p>- You may also like -</p>
-                <ul>
-                    {suggestions.map(suggestion => <li key={suggestion.searchterm}> <button onClick={ () => setSearchTerm(suggestion.searchterm) } > {suggestion.searchterm} </button>  </li> )}
-                </ul>
-            </div> */}
-            {error ? <p className='error-message message'> {error} </p> : null}
-            {success ? <p className='success-message message'> {success} </p> : null}
+                {error ? <p className='error-message message'> {error} </p> : null}
+                {success ? <p className='success-message message'> {success} </p> : null}
             <div className='card-outer-container'>
                 {data.length ? 
                 data.map( item => <Card key={item.productid} img={item.imageURL} title={item.displayName} subTitle={item.subTitle} price={item.price} salePrice={item.salePrice} id={item.productid} handleClick={handleClick} btn="add" /> ) 
                 : null }
             </div> 
-        </div>
-        
+        </div>      
     )
 }
 
