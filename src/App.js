@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+// import SearchForm from './components/searchForm';
+import './index.css'
+import {BrowserRouter as Router, Routes ,Route} from 'react-router-dom';
+import ResultPage from './components/searchResultsPage';
+import Wishlist from './components/wishlist';
+import HomePage from './components/homePage';
+import { countContext } from './contexts/countContext';
+import { useState } from 'react';
 
 function App() {
+  const [count, setCount] = useState( () => {
+    const localStorageValue = localStorage.getItem('wishlist');
+    return JSON.parse(localStorageValue).length
+  } )
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='test'>
+      <countContext.Provider value={{count, setCount}}>
+        <Router>
+          <Routes>
+            <Route path='/' element={<HomePage />} />
+            <Route path='/search-results' element={<ResultPage />} />
+            <Route path='/wishlist' element={<Wishlist />} />
+          </Routes>
+        </Router>
+      </countContext.Provider>
     </div>
   );
 }

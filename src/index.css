@@ -1,3 +1,14 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+font-family: 'Roboto', sans-serif;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +18,216 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.home-page {
+  background-color: rgb(232, 232, 232);
+  /* border: 1px solid red; */
+  height: 100vh;
+}
+.form-header {
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70vh;
+  width: 100%;
+  padding: 0 2rem;
+  /* border: 1px solid red; */
+}
+
+.form-controls {
+  width: 50%;
+  margin: 0 .5rem;
+  min-width: 250px;
+  border-radius: 0%;
+  padding: .3rem;
+  border: 1px solid grey;
+  outline: none;
+
+}
+
+.search {
+  width: 50%;
+  margin: 1rem 0!important;
+  min-width: 250px;
+  color: black;
+  border: 1px solid black;
+  background-color: transparent;
+  padding: .3rem 0;
+}
+
+.search:hover {
+  color: white;
+  background-color: rgb(43, 40, 40);
+  border: 1px solid rgb(43, 40, 40);
+}
+
+.wishlist-btn {
+  float: right;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+  padding: .5rem 1.5rem;
+  margin: 2%;
+  max-height: 60px;
+}
+.wishlist-btn:hover {
+  color: white;
+  background-color: black;
+}
+.results-container {
+  display: flex;
+  /* border: 1px solid black; */
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.results-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+@media screen and (max-width: 950px) {
+  .results-header {
+    width: 100%;
+    order: 2;
+  }
+  .results-container {
+    flex-direction: column;
+  }
+  .wishlist-btn {
+    width: 40%;
+    width: 200px;
+    order: 1;
+    margin: 2% 0;
+  }
+}
+.wishlist-header {
+  margin: 2rem 0;
+  text-align: center;
+  width: 100%;
+}
+.card {
+  margin: 1rem 1.5rem!important;
+  width: 300px!important;
+  min-width: 200px;
+  height: 550px!important;
+  /* border: 1px solid red; */
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
+  border-radius: 8px!important;
+}
+.card-body {
+  min-height: 20%!important;
+}
+.card-outer-container {
+  display: flex;
+  /* justify-content: center; */
+  /* align-self: flex-start; */
+  flex-wrap: wrap;
+  width: 80%;
+  min-width: 300px;
+  margin: auto;
+}
+
+.card-link {
+  border: 1px solid grey;
+  padding: 0 .4rem;
+  width: 100%;
+  background-color: transparent;
+}
+
+.card-link:hover {
+  border: 1px solid white;
+  color: white;
+  background-color: black;
+}
+
+.original-price strong{
+  text-decoration: line-through;
+}
+.no-results-message {
+  text-align: center;
+  width: 100%;
+}
+
+.no-results-message .start-searching {
+  text-decoration: none!important;
+}
+.message {
+  margin: 1rem auto;
+  text-align: center;
+  width: 80%!important;
+  min-width: 200px;
+  padding: .5rem 0;
+}
+.error-message {
+  color: rgb(243, 65, 65);
+  border: 1px solid rgb(243, 65, 65);
+
+}
+.success-message {
+  color: green;
+  border: 1px solid green;
+}
+
+
+
+/* for cards to align center */
+@media screen and (max-width:1060px) {
+  .card-outer-container {
+    /* border: 1px solid green; */
+    justify-content: space-around;
+  }
+}
+.suggestions-container {
+  border: 1px solid grey;
+  width: 80%;
+  min-width: 300px;
+  margin: auto;
+  padding: 1rem 0;
+}
+.suggestions-container p {
+  font-weight: 300;
+  font-size: large;
+  text-align: center;
+  width: 80%;
+  min-width: 300px;
+  margin: auto;
+  /* border: 1px solid green; */
+}
+
+.suggestions-container ul {
+  width: 80%;
+  min-width: 300px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.suggestions-container li {
+  margin: .5rem;
+}
+
+.suggestions-container button {
+  border: 1px solid grey;
+  cursor: pointer;
+  padding: .5rem 1rem;
+  background-color: transparent;
+}
+
+.suggestions-container button:hover {
+  background-color: rgb(243, 241, 241);
+  border: 1px solid white;
+
 }
