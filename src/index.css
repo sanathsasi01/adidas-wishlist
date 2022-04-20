@@ -128,6 +128,8 @@ form {
   text-align: center;
   width: 100%;
 }
+
+/* product card styles */
 .card {
   margin: 1rem 1.5rem!important;
   width: 300px!important;
@@ -143,8 +145,6 @@ form {
 }
 .card-outer-container {
   display: flex;
-  /* justify-content: center; */
-  /* align-self: flex-start; */
   flex-wrap: wrap;
   width: 92%;
   min-width: 300px;
@@ -167,6 +167,8 @@ form {
 .original-price strong{
   text-decoration: line-through;
 }
+
+/* search results style */
 .no-results-message {
   text-align: center;
   width: 100%;
@@ -201,6 +203,9 @@ form {
     justify-content: space-around;
   }
 }
+
+
+/* suggestions section styles */
 .suggestions-container {
   border: 1px solid grey;
   width: 90%;
@@ -242,5 +247,4 @@ form {
 .suggestions-container button:hover {
   background-color: rgb(243, 241, 241);
   border: 1px solid white;
-
 }

@@ -1,4 +1,3 @@
-// import SearchForm from './components/searchForm';
 import './index.css'
 import {BrowserRouter as Router, Routes ,Route} from 'react-router-dom';
 import ResultPage from './components/searchResultsPage';
