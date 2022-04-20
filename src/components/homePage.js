@@ -6,7 +6,7 @@ import Navigation from "./navigation";
 function HomePage() {    
     return (
         <div>
-            <Navigation />
+            {/* <Navigation /> */}
             <SearchForm />
         </div>
     )

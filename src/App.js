@@ -5,6 +5,7 @@ import Wishlist from './components/wishlist';
 import HomePage from './components/homePage';
 import { countContext } from './contexts/countContext';
 import { useState } from 'react';
+import Navigation from './components/navigation';
 
 function App() {
   const [count, setCount] = useState( () => {
@@ -15,6 +16,7 @@ function App() {
     <div className='test'>
       <countContext.Provider value={{count, setCount}}>
         <Router>
+          <Navigation />
           <Routes>
             <Route path='/' element={<HomePage />} />
             <Route path='/search-results' element={<ResultPage />} />

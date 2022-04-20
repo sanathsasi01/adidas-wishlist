@@ -42,7 +42,7 @@ function Wishlist() {
     // }
     return (
         <div>
-            <Navigation />
+            {/* <Navigation /> */}
             <div className='results-outer-container' style={{ zIndex: "0" }}>
                 <div className='results-container'>
                     <h1 className='results-header wishlist-header'>- My Wishlist -</h1>

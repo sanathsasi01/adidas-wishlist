@@ -73,7 +73,7 @@ function ResultPage() {
 
     return (
         <div>
-            <Navigation />
+            {/* <Navigation /> */}
             <h2 className='results-header'>Showing results for "{searchTerm}"</h2>
             <Suggestions suggestions={suggestions}setSearchTerm={setSearchTerm}/>
                 {error ? <p className='error-message message'> {error} </p> : null}
