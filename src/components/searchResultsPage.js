@@ -7,7 +7,7 @@ import '../index.css'
 import { countContext } from '../contexts/countContext';
 import Suggestions from './suggestions';
 // import WishlistIcon from './wishlistIcon';
-import Navigation from './navigation';
+// import Navigation from './navigation';
 
 function ResultPage() {
     const {state} = useLocation();

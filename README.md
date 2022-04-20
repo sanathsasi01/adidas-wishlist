@@ -13,7 +13,7 @@ npm start
 
 - Solution
 
-Mock server used : adidas-search-api
+Mock server used : adidas-search-api (PORT : 3000)
 
 1.  Initially render a screen with a form to search products and a button to wishlist.
 2.  Redirects to a page where all the corresponding products and suggestions will be displayed.

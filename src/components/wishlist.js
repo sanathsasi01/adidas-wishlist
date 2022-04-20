@@ -4,7 +4,7 @@ import '../index.css'
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { countContext } from "../contexts/countContext";
-import Navigation from './navigation';
+// import Navigation from './navigation';
 
 function Wishlist() {
     const {count, setCount} = useContext(countContext);
