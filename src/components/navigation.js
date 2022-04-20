@@ -10,12 +10,15 @@ function Navigation() {
     const style = {
         width: "10%",
         margin: "0 1rem",
-        minWidth: "100px" 
+        minWidth: "100px",
+        // border: "1px solid red"
+        // zIndex: 1
     }
+
     
     return (
         <nav>
-            <Link to="/"><img src="https://1000marcas.net/wp-content/uploads/2019/11/Logo-Adidas.png" style={style} /></Link>
+            <Link to="/"><img src="https://1000marcas.net/wp-content/uploads/2019/11/Logo-Adidas.png" style={style} alt="icon" /></Link>
             <WishlistIcon count={count} />
         </nav>
     )

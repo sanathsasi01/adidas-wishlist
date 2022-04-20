@@ -20,7 +20,6 @@ function SearchForm() {
     return (
         <div>
             <form method="GET">
-                {/* <h1 className="form-header">adidas</h1> */}
                 <input type="text" placeholder="Search products" className="form-controls" value={value} onChange={handleChange} required />
                 <button type='submit' onClick={handleSearch} className="search" >Search</button>
             </form>

@@ -37,11 +37,13 @@ function Wishlist() {
             setTimeout(hideMessage, 2000);
         }
     }
-
+    // const test = {
+        
+    // }
     return (
         <div>
             <Navigation />
-            <div className='results-outer-container'>
+            <div className='results-outer-container' style={{ zIndex: "0" }}>
                 <div className='results-container'>
                     <h1 className='results-header wishlist-header'>- My Wishlist -</h1>
                 </div>

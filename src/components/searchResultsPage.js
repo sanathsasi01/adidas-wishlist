@@ -73,10 +73,8 @@ function ResultPage() {
 
     return (
         <div>
-            {/* <div className='results-outer-container'> */}
-                <Navigation />
-                <h2 className='results-header'>Showing results for "{searchTerm}"</h2>
-            {/* </div> */}
+            <Navigation />
+            <h2 className='results-header'>Showing results for "{searchTerm}"</h2>
             <Suggestions suggestions={suggestions}setSearchTerm={setSearchTerm}/>
                 {error ? <p className='error-message message'> {error} </p> : null}
                 {success ? <p className='success-message message'> {success} </p> : null}
