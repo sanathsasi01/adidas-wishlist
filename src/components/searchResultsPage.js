@@ -3,11 +3,10 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Card from './card';
 import '../index.css'
-// import {Link} from 'react-router-dom';
 import { countContext } from '../contexts/countContext';
 import Suggestions from './suggestions';
-// import WishlistIcon from './wishlistIcon';
-// import Navigation from './navigation';
+import { message } from 'antd';
+
 
 function ResultPage() {
     const {state} = useLocation();
@@ -15,7 +14,7 @@ function ResultPage() {
     const [suggestions, setSuggestions] = useState([]);
     const [data, setData] = useState([]);
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    // const [success, setSuccess] = useState("");
     const {count, setCount} = useContext(countContext);
 
     const [wishlist, setWishlist] = useState( () => {
@@ -24,10 +23,11 @@ function ResultPage() {
     });
 
     // hide error message after few seconds
-    const hideMessage = () => {
-        setSuccess("");
-        setError("");
-    }
+    // const hideMessage = () => {
+    //     if(error!=="") {
+    //         setError("");
+    //     }
+    // }
 
 
     // to handle add to cart event
@@ -41,13 +41,16 @@ function ResultPage() {
             setWishlist(newWishlist)
             localStorage.setItem('wishlist', JSON.stringify(newWishlist));
             setCount(newWishlist.length)
-            setSuccess("Item added to wishlist")
-            setError("")
-            setTimeout(hideMessage,2000)
+            message.success('Item added to wishlist');
+
+            // setSuccess("Item added to wishlist")
+            // setError("")
+            // setTimeout(hideMessage,2000)
         }else {
-            setError("Item already added")
-            setSuccess("")
-            setTimeout(hideMessage,2000)
+            message.error('Item already added to wishlist');
+            // setError("Item already added")
+            // setSuccess("")
+            // setTimeout(hideMessage,2000)
         }
     }
 
@@ -64,20 +67,17 @@ function ResultPage() {
             .catch( () => {
                 setData([])
                 setError(`No results found for "${searchTerm}"`)
-                setTimeout(hideMessage,2000)
-                // setError(error.response.statusText)
             })
         }
-        fetchData()
+        fetchData();
     }, [searchTerm])
 
     return (
         <div>
-            {/* <Navigation /> */}
             <h2 className='results-header'>Showing results for "{searchTerm}"</h2>
             <Suggestions suggestions={suggestions}setSearchTerm={setSearchTerm}/>
                 {error ? <p className='error-message message'> {error} </p> : null}
-                {success ? <p className='success-message message'> {success} </p> : null}
+                {/* {success ? <p className='success-message message'> {success} </p> : null} */}
             <div className='card-outer-container'>
                 {data.length ? 
                 data.map( item => <Card key={item.productid} img={item.imageURL} title={item.displayName} subTitle={item.subTitle} price={item.price} salePrice={item.salePrice} id={item.productid} handleClick={handleClick} btn="add" /> ) 
