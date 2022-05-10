@@ -13,7 +13,7 @@ function Card(props) {
                 <li className="list-group-item"> Sale Price : <strong>{props.salePrice} &euro;</strong> </li>
             </ul>
             <div className="card-body">
-                <button className="card-link" onClick={(e) => props.handleClick(e)} id={props.id} > {props.btn === 'add' ? "Add to cart" : "Remove from cart" } </button>
+                <button className="card-link" onClick={(e) => props.handleClick(e)} id={props.id} > {props.btn === 'add' ? "Add to wishlist" : "Remove from wishlist" } </button>
             </div>
         </div>
     )

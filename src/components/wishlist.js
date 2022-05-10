@@ -2,13 +2,17 @@ import { useState } from 'react';
 import Card from './card';
 import '../index.css'
 import { Link } from 'react-router-dom';
-import { useContext } from "react";
-import { countContext } from "../contexts/countContext";
+// import { useContext } from "react";
+// import { countContext } from "../contexts/countContext";
 import { message } from 'antd';
+import { useDispatch } from 'react-redux';
+import SetCount from '../actions/setItem';
 
 
 function Wishlist() {
-    const {count, setCount} = useContext(countContext);
+    const dispatch = useDispatch();
+
+    // const {count, setCount} = useContext(countContext);
     
     const [items, setItems] = useState( () => {
         const localStorageValue = localStorage.getItem('wishlist');
@@ -25,7 +29,7 @@ function Wishlist() {
             setItems(newWishlist)
             localStorage.setItem("wishlist", JSON.stringify(newWishlist))
             message.success("Item removed successfully")
-            setCount(newWishlist.length)
+            dispatch(SetCount(newWishlist.length))
         }
     }
     // const test = {

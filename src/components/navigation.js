@@ -1,18 +1,19 @@
-import { useContext } from "react";
-import { countContext } from "../contexts/countContext";
+// import { useContext } from "react";
+// import { countContext } from "../contexts/countContext";
 import '../index.css'
 import WishlistIcon from "./wishlistIcon";
 import {Link}from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 function Navigation() {
-    const {count} = useContext(countContext);
+    // const {count} = useContext(countContext);
+    const count = useSelector(state => state)
+    console.log(count)
     const style = {
         width: "10%",
         margin: "0 1rem",
         minWidth: "100px",
-        // border: "1px solid red"
-        // zIndex: 1
     }
 
     

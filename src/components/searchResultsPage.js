@@ -3,9 +3,14 @@ import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import Card from './card';
 import '../index.css'
-import { countContext } from '../contexts/countContext';
 import Suggestions from './suggestions';
 import { message } from 'antd';
+import { useDispatch } from 'react-redux';
+import SetCount from '../actions/setItem';
+import React from 'react';
+
+// rsf
+
 
 
 function ResultPage() {
@@ -14,21 +19,12 @@ function ResultPage() {
     const [suggestions, setSuggestions] = useState([]);
     const [data, setData] = useState([]);
     const [error, setError] = useState("");
-    // const [success, setSuccess] = useState("");
-    const {count, setCount} = useContext(countContext);
+    const dispatch = useDispatch()
 
     const [wishlist, setWishlist] = useState( () => {
         const localStorageValue = localStorage.getItem('wishlist');
         return localStorageValue !== null ? JSON.parse(localStorageValue) : [] 
     });
-
-    // hide error message after few seconds
-    // const hideMessage = () => {
-    //     if(error!=="") {
-    //         setError("");
-    //     }
-    // }
-
 
     // to handle add to cart event
     const handleClick = (e) => {
@@ -40,17 +36,10 @@ function ResultPage() {
             const newWishlist = [...wishListItems, addedItem]
             setWishlist(newWishlist)
             localStorage.setItem('wishlist', JSON.stringify(newWishlist));
-            setCount(newWishlist.length)
+            dispatch(SetCount(newWishlist.length));
             message.success('Item added to wishlist');
-
-            // setSuccess("Item added to wishlist")
-            // setError("")
-            // setTimeout(hideMessage,2000)
         }else {
             message.error('Item already added to wishlist');
-            // setError("Item already added")
-            // setSuccess("")
-            // setTimeout(hideMessage,2000)
         }
     }
 
@@ -76,8 +65,7 @@ function ResultPage() {
         <div>
             <h2 className='results-header'>Showing results for "{searchTerm}"</h2>
             <Suggestions suggestions={suggestions}setSearchTerm={setSearchTerm}/>
-                {error ? <p className='error-message message'> {error} </p> : null}
-                {/* {success ? <p className='success-message message'> {success} </p> : null} */}
+                {error && <p className='error-message message'> {error} </p> }
             <div className='card-outer-container'>
                 {data.length ? 
                 data.map( item => <Card key={item.productid} img={item.imageURL} title={item.displayName} subTitle={item.subTitle} price={item.price} salePrice={item.salePrice} id={item.productid} handleClick={handleClick} btn="add" /> ) 

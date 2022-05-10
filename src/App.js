@@ -11,7 +11,7 @@ function App() {
   const [count, setCount] = useState( () => {
     const localStorageValue = localStorage.getItem('wishlist');
     return JSON.parse(localStorageValue).length
-  } )
+  })
   return (
     <div className='test'>
       <countContext.Provider value={{count, setCount}}>
