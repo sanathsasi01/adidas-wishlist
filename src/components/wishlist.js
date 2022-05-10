@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 // import { countContext } from "../contexts/countContext";
 import { message } from 'antd';
 import { useDispatch } from 'react-redux';
-import SetCount from '../actions/setItem';
+import SetCount from '../actions/SetCount';
 
 
 function Wishlist() {

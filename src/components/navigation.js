@@ -1,21 +1,27 @@
-// import { useContext } from "react";
+import { useEffect } from "react";
 // import { countContext } from "../contexts/countContext";
 import '../index.css'
 import WishlistIcon from "./wishlistIcon";
 import {Link}from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import SetCount from '../actions/SetCount';
 
 
 function Navigation() {
-    // const {count} = useContext(countContext);
+    // const {count} = useContext(countContext);\
+    const dispatch = useDispatch()
+    const wishList = JSON.parse(localStorage.getItem("wishlist")) ;
+    const wishListCount = wishList === null ? 0 : wishList.length
     const count = useSelector(state => state)
-    console.log(count)
     const style = {
         width: "10%",
         margin: "0 1rem",
         minWidth: "100px",
     }
 
+    useEffect( () => {
+        dispatch(SetCount(wishListCount))
+    } , [] )
     
     return (
         <nav>

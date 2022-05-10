@@ -1,12 +1,12 @@
 import {useLocation} from 'react-router-dom';
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Card from './card';
 import '../index.css'
 import Suggestions from './suggestions';
 import { message } from 'antd';
 import { useDispatch } from 'react-redux';
-import SetCount from '../actions/setItem';
+import SetCount from '../actions/SetCount';
 import React from 'react';
 
 // rsf

@@ -1,4 +1,4 @@
-const WishListReducer = (state=0, action) => {
+const WishListReducer = (state, action) => {
     switch(action.type) {
         case "SETCOUNT":
             return action.payload;
